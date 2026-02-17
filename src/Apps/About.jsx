@@ -183,7 +183,7 @@ const About = () => {
 
     const capabilitiesData = {
         stress: {
-            label: { en: 'Stress', id: 'Tegangan' },
+            label: { en: 'Stress', id: 'Stress' },
             title: {
                 en: 'Helping operators and equipment manufacturers',
                 id: 'Membantu operator dan produsen peralatan'
@@ -250,7 +250,7 @@ const About = () => {
             image: '/img/dynamics.png'
         },
         buckling: {
-            label: { en: 'Buckling', id: 'Tekuk' },
+            label: { en: 'Buckling', id: 'Buckling' },
             title: { en: 'Fluid-Structure Interaction (FSI) analysis', id: 'Analisis Fluid-Structure Interaction (FSI)' },
             description: {
                 en: [
@@ -278,7 +278,7 @@ const About = () => {
             image: '/img/materials.png'
         },
         fatigue: {
-            label: { en: 'Fatigue', id: 'Kelelahan' },
+            label: { en: 'Fatigue', id: 'Fatigue' },
             title: { en: 'Fluid-Structure Interaction (FSI) analysis', id: 'Analisis Fluid-Structure Interaction (FSI)' },
             description: {
                 en: [
@@ -290,7 +290,7 @@ const About = () => {
                     'Kami dapat menerjemahkan perilaku non-linear kompleks menjadi model material yang efisien untuk FEA, termasuk pengelolaan uji fisik material serta pengembangan dan validasi model konstitutif untuk diterapkan pada software analisis klien.'
                 ]
             },
-            image: '/img/capability-fatigue.png'
+            image: '/img/fatigue.png'
         }
     };
 
@@ -461,6 +461,8 @@ const About = () => {
                                 <img
                                     src="/img/about.jpeg"
                                     alt="About PrimeFEM"
+                                    loading="eager"
+                                    decoding="async"
                                     className="w-full h-[500px] object-cover transform transition-transform duration-700 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
@@ -523,6 +525,8 @@ const About = () => {
                                                     <img
                                                         src="/img/vision.jpeg"
                                                         alt="Vision"
+                                                        loading="lazy"
+                                                        decoding="async"
                                                         className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
                                                     />
                                                     <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/40 via-transparent to-black/60"></div>
@@ -590,6 +594,8 @@ const About = () => {
                                                 <img
                                                     src="/img/mission.jpeg"
                                                     alt="Mission"
+                                                    loading="lazy"
+                                                    decoding="async"
                                                     className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
                                                 />
                                                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-red-500/30 to-[#7C0A02]/90"></div>
@@ -759,6 +765,8 @@ const About = () => {
                                                         <img
                                                             src={service.image}
                                                             alt={service.title}
+                                                            loading="lazy"
+                                                            decoding="async"
                                                             className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
                                                         />
                                                         {/* Gradient Overlay - Diagonal Effect */}
@@ -905,6 +913,8 @@ const About = () => {
                                 <img
                                     src="/img/industries_coverage.png"
                                     alt="Industries Coverage"
+                                    loading="lazy"
+                                    decoding="async"
                                     className="relative w-full max-w-[400px] h-auto object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
                                 />
                             </div>
@@ -936,6 +946,8 @@ const About = () => {
                                                                 <img
                                                                     src={industries[startIndex].image}
                                                                     alt={industries[startIndex].name[language]}
+                                                                    loading="lazy"
+                                                                    decoding="async"
                                                                     className="w-full h-full object-cover transform transition-transform duration-700 group-hover/card:scale-110"
                                                                 />
                                                                 {/* Enhanced gradient overlay */}
@@ -972,6 +984,8 @@ const About = () => {
                                                                 <img
                                                                     src={industries[startIndex + 1].image}
                                                                     alt={industries[startIndex + 1].name[language]}
+                                                                    loading="lazy"
+                                                                    decoding="async"
                                                                     className="w-full h-full object-cover transform transition-transform duration-700 group-hover/card:scale-110"
                                                                 />
                                                                 {/* Enhanced gradient overlay */}
@@ -1090,6 +1104,8 @@ const About = () => {
                                 <img
                                     src={capabilitiesData[activeTab].image}
                                     alt={capabilitiesData[activeTab].label[language]}
+                                    loading="lazy"
+                                    decoding="async"
                                     className="w-full max-w-[360px] sm:max-w-[420px] md:max-w-[520px] lg:max-w-lg h-auto rounded-2xl shadow-2xl border border-gray-100 object-contain"
                                     onError={(e) => {
                                         // Fallback if image doesn't exist yet
@@ -1149,6 +1165,8 @@ const About = () => {
                                                 <img
                                                     src={testimonials[currentTestimonial].image}
                                                     alt={testimonials[currentTestimonial].name}
+                                                    loading="lazy"
+                                                    decoding="async"
                                                     className="w-20 h-20 md:w-24 md:h-24 rounded-full border-4 border-[#7C0A02] bg-white object-cover"
                                                     onError={(e) => {
                                                         e.target.src = "https://placehold.co/100x100/ffffff/7C0A02?text=PF";

@@ -22,7 +22,7 @@ const SimulasiFea = () => {
       expertise: 'Technical Expertise',
       consultingTitle: 'Simulation Consulting',
       consultingAccent: 'Reinvented.',
-      consultingDesc: 'PrimeFEM is focused on transforming businesses through the effective use of engineering simulation, FEA Analysis, and CFD Analysis.',
+      consultingDesc: 'PrimeFEM is focused on transforming businesses through the effective use of engineering simulation and FEA Analysis.',
       bullets: [
         'Quality-assured simulation consulting via Chartered Engineers',
         'Validation of product performance and process reliability',
