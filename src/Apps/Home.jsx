@@ -82,6 +82,9 @@ const Home = () => {
             <img
               src="/img/porto.png"
               alt="Engineering Portfolio"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
               className="relative w-full h-auto object-contain rounded-xl shadow-2xl border border-white/10 backdrop-brightness-110"
             />
 
