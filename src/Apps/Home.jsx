@@ -58,6 +58,7 @@ const Home = () => {
             </span>
           </h1>
 
+          {/* description visible on all sizes */}
           <p className="text-gray-300 text-lg max-w-lg leading-relaxed border-l border-gray-600 pl-4">
             {text.description}
           </p>
@@ -74,8 +75,8 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Right Side: Visuals */}
-        <div className="w-full md:w-1/2 relative mt-16 md:mt-0 flex justify-center perspective-1000">
+        {/* Right Side: Visuals (hidden on small screens) */}
+        <div className="w-full md:w-1/2 relative mt-16 md:mt-0 hidden md:flex justify-center perspective-1000">
           {/* Main Hero Image */}
           <div className="relative w-full max-w-xl group">
             <div className="absolute -inset-1 bg-gradient-to-r from-[#DDFF00] to-red-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
