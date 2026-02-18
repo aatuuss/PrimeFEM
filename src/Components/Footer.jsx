@@ -256,7 +256,7 @@ const Footer = () => {
 `
 
 	return (
-		<footer className="prime-footer">
+		<footer className="prime-footer bg-white relative z-50">
 			<style>{styles}</style>
 			<div className="prime-footer__main">
 				<div className="prime-footer__col prime-footer__col--brand">

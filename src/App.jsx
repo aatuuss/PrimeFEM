@@ -1,11 +1,13 @@
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './Components/Navbar'
 import ScrollToTop from './Components/ScrollToTop'
-// import Footer from './Components/Footer'
+import Footer from './Components/Footer'
 import Home from './Apps/Home'
 import About from './Apps/About'
 import Contact from './Apps/Contact'
 import SimulasiFea from './Apps/simulasifea'
+import Experince from './Apps/Experince'
+import Servis from './Apps/Servis'
 import { LanguageProvider } from './contexts/LanguageContext'
 import './App.css'
 
@@ -41,7 +43,6 @@ function ContactPage() {
     <div className="pt-20">
       <Contact />
       {/* <SimulasiFea /> */}
-      {/* <Footer /> */}
     </div>
   )
 }
@@ -55,9 +56,12 @@ function App() {
 
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/experince" element={<Experince />} />
+          <Route path="/servis" element={<Servis />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/simulasifea" element={<SimulasiFea />} />
         </Routes>
+        <Footer />
       </div>
     </LanguageProvider>
   )

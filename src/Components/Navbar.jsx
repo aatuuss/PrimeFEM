@@ -49,8 +49,8 @@ const Navbar = () => {
 
     const navItems = [
         { label: labels[language].home, href: '/', type: 'route' },
-        { label: labels[language].experiences, href: '/#about', type: 'anchor' },
-        { label: labels[language].service, href: '/#about', type: 'anchor' },
+        { label: labels[language].experiences, href: '/experince', type: 'route' },
+        { label: labels[language].service, href: '/servis', type: 'route' },
         { label: labels[language].simulation, href: '/simulasifea', type: 'route' },
         { label: labels[language].contact, href: '/contact', type: 'route' }
     ]
