@@ -435,7 +435,7 @@ const About = () => {
                 <div className="max-w-7xl mx-auto space-y-16 relative z-10">
 
                     {/* Header Section */}
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between -mt-20 pb-2 border-b border-white/20">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between -mt-10 md:-mt-20 pb-2 border-b border-white/20">
 
                         <div className="space-y-2">
                             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white">
@@ -518,7 +518,7 @@ const About = () => {
                                     {/* Main Card */}
                                     <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl overflow-hidden shadow-2xl h-full transform transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-yellow-500/20">
                                         {/* Diagonal Split Layout */}
-                                        <div className="relative min-h-[500px] lg:min-h-[550px]">
+                                        <div className="relative min-h-[400px] sm:min-h-[500px] lg:min-h-[550px]">
                                             {/* Background Image - Diagonal Placement */}
                                             <div className="absolute top-0 right-0 w-full lg:w-[55%] h-[40%] lg:h-full">
                                                 <div className="relative w-full h-full overflow-hidden">
@@ -588,7 +588,7 @@ const About = () => {
 
                                     {/* Main Card */}
                                     <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl overflow-hidden shadow-2xl h-full transform transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-red-500/20">
-                                        <div className="relative min-h-[500px] lg:min-h-[550px] flex flex-col">
+                                        <div className="relative min-h-[400px] sm:min-h-[500px] lg:min-h-[550px] flex flex-col">
                                             {/* Image Section - Top */}
                                             <div className="relative h-48 overflow-hidden">
                                                 <img
@@ -1018,7 +1018,7 @@ const About = () => {
                             <button
                                 onClick={prevIndustry}
                                 disabled={currentIndustry === 0}
-                                className={`absolute -left-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-gradient-to-br from-white to-gray-50 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 group z-20 border-2 ${currentIndustry === 0
+                                className={`absolute -left-2 sm:-left-4 lg:-left-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-gradient-to-br from-white to-gray-50 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 group z-20 border-2 ${currentIndustry === 0
                                     ? 'opacity-40 cursor-not-allowed border-gray-200'
                                     : 'hover:from-[#007BB1] hover:to-[#005a8a] hover:text-white border-gray-200 hover:border-[#007BB1] hover:scale-110'
                                     }`}
@@ -1029,7 +1029,7 @@ const About = () => {
                             <button
                                 onClick={nextIndustry}
                                 disabled={currentIndustry === 3}
-                                className={`absolute -right-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-gradient-to-br from-white to-gray-50 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 group z-20 border-2 ${currentIndustry === 3
+                                className={`absolute -right-2 sm:-right-4 lg:-right-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-gradient-to-br from-white to-gray-50 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 group z-20 border-2 ${currentIndustry === 3
                                     ? 'opacity-40 cursor-not-allowed border-gray-200'
                                     : 'hover:from-[#7C0A02] hover:to-[#5a0701] hover:text-white border-gray-200 hover:border-[#7C0A02] hover:scale-110'
                                     }`}
@@ -1100,13 +1100,13 @@ const About = () => {
                         {/* Right Side - Visual Representation */}
                         <div className="relative group perspective-1000">
                             <div className="absolute -inset-4 bg-gradient-to-tr from-[#007BB1]/10 to-[#7C0A02]/10 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                            <div className="relative transform-gpu transition-all duration-700 group-hover:rotate-y-6 group-hover:scale-105 w-full flex justify-center">
+                            <div className="relative transform-gpu transition-all duration-700 group-hover:rotate-y-6 group-hover:scale-105 w-full flex justify-center mt-8 lg:mt-0">
                                 <img
                                     src={capabilitiesData[activeTab].image}
                                     alt={capabilitiesData[activeTab].label[language]}
                                     loading="lazy"
                                     decoding="async"
-                                    className="w-full max-w-[360px] sm:max-w-[420px] md:max-w-[520px] lg:max-w-lg h-auto rounded-2xl shadow-2xl border border-gray-100 object-contain"
+                                    className="w-full max-w-[300px] sm:max-w-[420px] md:max-w-[520px] lg:max-w-lg h-auto rounded-2xl shadow-2xl border border-gray-100 object-contain mx-auto"
                                     onError={(e) => {
                                         // Fallback if image doesn't exist yet
                                         e.target.src = "https://placehold.co/800x600/f3f4f6/374151?text=" + capabilitiesData[activeTab].label[language];
@@ -1128,7 +1128,7 @@ const About = () => {
                             style={{ clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 0 100%)' }}
                         ></div>
 
-                        <div className="relative px-4 py-8 sm:px-6 sm:py-10 md:px-16 md:py-16">
+                        <div className="relative px-6 py-10 md:px-16 md:py-16">
                             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                                 {/* Left Content */}
                                 <div className="lg:col-span-7 space-y-6">

@@ -19,7 +19,7 @@ function HomePage() {
         z-0: sits behind the About section.
         h-screen: takes up full viewport height.
       */}
-      <div id="home" className="sticky top-0 z-0 h-screen w-full scroll-mt-24">
+      <div id="home" className="sticky top-0 z-0 h-[100dvh] w-full scroll-mt-24">
         <Home />
       </div>
 
@@ -29,7 +29,7 @@ function HomePage() {
         Because Home is sticky, About will scroll 'over' it.
         We add z-10 (or higher inside About) to ensure it covers Home.
       */}
-      <div id="about" className="relative z-10 mt-[30vh] scroll-mt-24">
+      <div id="about" className="relative z-10 mt-[20vh] md:mt-[30vh] scroll-mt-24">
         <About />
       </div>
     </>

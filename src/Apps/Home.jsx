@@ -42,14 +42,14 @@ const Home = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-center min-h-[calc(100vh-80px)] pt-24 pb-12">
 
         {/* Left Side: Text Content */}
-        <div className="w-full md:w-1/2 text-left space-y-8 md:pr-16 animate-fade-in-up">
+        <div className="w-full md:w-1/2 text-center md:text-left space-y-6 md:space-y-8 md:pr-16 animate-fade-in-up">
           <div className="inline-block border-l-4 border-[#DDFF00] pl-4">
-            <p className="text-gray-200 text-sm md:text-base font-bold tracking-[0.2em] uppercase">
+            <p className="text-gray-200 text-xs md:text-base font-bold tracking-[0.2em] uppercase">
               PT PRIMA REKAYASA MANDIRI
             </p>
           </div>
 
-          <h1 className="text-5xl md:text-[64px] font-extrabold leading-[1.1] tracking-tight text-white drop-shadow-lg">
+          <h1 className="text-4xl sm:text-5xl md:text-[64px] font-extrabold leading-[1.1] tracking-tight text-white drop-shadow-lg">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#DDFF00] to-yellow-300">
               {text.headlineTop}
             </span> <br />
@@ -59,26 +59,26 @@ const Home = () => {
           </h1>
 
           {/* description visible on all sizes */}
-          <p className="text-gray-300 text-lg max-w-lg leading-relaxed border-l border-gray-600 pl-4">
+          <p className="text-gray-300 text-base md:text-lg max-w-lg mx-auto md:mx-0 leading-relaxed border-l border-gray-600 pl-4">
             {text.description}
           </p>
 
-          <div className="pt-6 group">
+          <div className="pt-4 md:pt-6 group">
             <Link
               to="/contact"
-              className="relative overflow-hidden bg-transparent border-2 border-white text-white px-10 py-3 rounded-full font-semibold text-sm hover:border-[#DDFF00] hover:text-black transition-all duration-300 inline-flex items-center gap-1.5"
+              className="relative overflow-hidden bg-transparent border-2 border-white text-white px-8 md:px-10 py-3 rounded-full font-semibold text-xs md:text-sm hover:border-[#DDFF00] hover:text-black transition-all duration-300 inline-flex items-center gap-1.5"
             >
               <span className="relative z-10 group-hover:text-[#DDFF00] transition-colors">{text.contactCta}</span>
-              <ArrowRight className="w-7 h-7 relative z-40 group-hover:translate-x-1 transition-transform group-hover:text-[#DDFF00]" />
+              <ArrowRight className="w-5 h-5 md:w-7 md:h-7 relative z-40 group-hover:translate-x-1 transition-transform group-hover:text-[#DDFF00]" />
               <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out z-0 opacity-10"></div>
             </Link>
           </div>
         </div>
 
-        {/* Right Side: Visuals (hidden on small screens) */}
-        <div className="w-full md:w-1/2 relative mt-16 md:mt-0 hidden md:flex justify-center perspective-1000">
+        {/* Right Side: Visuals (visible on all screens, adjusted for mobile) */}
+        <div className="w-full md:w-1/2 relative mt-12 md:mt-0 flex justify-center perspective-1000">
           {/* Main Hero Image */}
-          <div className="relative w-full max-w-xl group">
+          <div className="relative w-full max-w-[280px] sm:max-w-md md:max-w-xl group scale-90 sm:scale-100">
             <div className="absolute -inset-1 bg-gradient-to-r from-[#DDFF00] to-red-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
             <img
               src="/img/porto.png"
@@ -90,24 +90,24 @@ const Home = () => {
             />
 
             {/* Floating Card 1: Projects */}
-            <div className="absolute -top-12 -right-4 md:-right-8 bg-white/10 backdrop-blur-xl rounded-2xl p-5 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] border border-white/20 flex items-center gap-4 max-w-[300px] z-20 hover:-translate-y-2 transition-all duration-300 group/card1">
-              <div className="bg-gradient-to-br from-[#DDFF00] to-yellow-500 p-3 rounded-xl shadow-lg group-hover/card1:scale-110 transition-transform duration-300">
-                <CheckCircle className="text-black w-8 h-8" />
+            <div className="absolute -top-10 -right-2 md:-top-12 md:-right-8 bg-white/10 backdrop-blur-xl rounded-2xl p-3 md:p-5 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] border border-white/20 flex items-center gap-3 md:gap-4 max-w-[180px] md:max-w-[300px] z-20 hover:-translate-y-2 transition-all duration-300 group/card1 scale-75 md:scale-100 origin-right">
+              <div className="bg-gradient-to-br from-[#DDFF00] to-yellow-500 p-2 md:p-3 rounded-xl shadow-lg group-hover/card1:scale-110 transition-transform duration-300">
+                <CheckCircle className="text-black w-6 h-6 md:w-8 md:h-8" />
               </div>
               <div>
-                <h3 className="text-4xl font-black text-white leading-none drop-shadow-md">150<span className="text-[#DDFF00]">+</span></h3>
-                <p className="text-xs font-bold text-gray-200 mt-1 uppercase tracking-wider">{text.projects}</p>
+                <h3 className="text-2xl md:text-4xl font-black text-white leading-none drop-shadow-md">150<span className="text-[#DDFF00]">+</span></h3>
+                <p className="text-[10px] md:text-xs font-bold text-gray-200 mt-1 uppercase tracking-wider">{text.projects}</p>
               </div>
             </div>
 
             {/* Floating Card 2: Clients */}
-            <div className="absolute -bottom-12 -left-4 md:-left-8 bg-white/10 backdrop-blur-xl rounded-2xl p-5 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] border border-white/20 flex items-center gap-4 max-w-[280px] z-20 hover:-translate-y-2 transition-all duration-300 delay-100 group/card2">
-              <div className="bg-gradient-to-br from-blue-400 to-blue-600 p-3 rounded-xl shadow-lg group-hover/card2:scale-110 transition-transform duration-300">
-                <Hexagon className="text-white w-8 h-8 fill-white/20" />
+            <div className="absolute -bottom-10 -left-2 md:-bottom-12 md:-left-8 bg-white/10 backdrop-blur-xl rounded-2xl p-3 md:p-5 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] border border-white/20 flex items-center gap-3 md:gap-4 max-w-[160px] md:max-w-[280px] z-20 hover:-translate-y-2 transition-all duration-300 delay-100 group/card2 scale-75 md:scale-100 origin-left">
+              <div className="bg-gradient-to-br from-blue-400 to-blue-600 p-2 md:p-3 rounded-xl shadow-lg group-hover/card2:scale-110 transition-transform duration-300">
+                <Hexagon className="text-white w-6 h-6 md:w-8 md:h-8 fill-white/20" />
               </div>
               <div>
-                <h3 className="text-4xl font-black text-white leading-none drop-shadow-md">90<span className="text-[#DDFF00]">+</span></h3>
-                <p className="text-xs font-bold text-gray-200 mt-1 uppercase tracking-wider">{text.clients}</p>
+                <h3 className="text-2xl md:text-4xl font-black text-white leading-none drop-shadow-md">90<span className="text-[#DDFF00]">+</span></h3>
+                <p className="text-[10px] md:text-xs font-bold text-gray-200 mt-1 uppercase tracking-wider">{text.clients}</p>
               </div>
             </div>
           </div>
