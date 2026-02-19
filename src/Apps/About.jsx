@@ -190,7 +190,7 @@ const About = () => {
             },
             description: {
                 en: [
-                    'Structural analysis projects typically include the identification and risk assessment of failure modes. Common failure modes are mechanical overloading, plastic collapse, localized yielding, or wear. We are familiar with assessing structures to various design codes such as ASME VIII Div. 2, BS EN ISO 3449:2008., DEF STAN 08-123, BR 3021, MIL-STD-810, RTCA DO-160 and DN-RP-F112.',
+                    'Structural analysis projects typically include the identification and risk assessment of failure modes. Common failure modes are mechanical overloading, plastic collapse, localized yielding, or wear. We are familiar with assessing structures to various design codes such as ASME CODE. 2, BS EN ISO 3449:2008., DEF STAN 08-123, BR 3021, MIL-STD-810, RTCA DO-160 and DN-RP-F112.',
                     'However, we have also investigated other potential causes of failure, such as hydrogen embrittlement and aging, including stress corrosion cracking of stainless steel subsea equipment to DN-RP-F112.',
                     'We can predict progressive failure using advanced fracture mechanics capabilities, including application of the Paris Law for aluminium structures.'
                 ],
@@ -493,7 +493,7 @@ const About = () => {
                                 </p>
                             </div>
                             <Link
-                                to="/#services"
+                                to="/servis"
                                 className="px-8 py-4 bg-white text-[#7C0A02] font-bold rounded-lg shadow-lg hover:bg-yellow-400 hover:text-black transition-all duration-300 flex items-center gap-2 group"
                             >
                                 {text.servicesButton}
@@ -806,8 +806,11 @@ const About = () => {
                                                                     {service.description[language]}
                                                                 </p>
 
-                                                                {/* Premium Button with Arrow */}
-                                                                <button className="group/btn relative inline-flex items-center gap-2 overflow-hidden">
+                                                                {/* Premium Link styled as button */}
+                                                                <Link
+                                                                    to={`/servis?category=${service.id}`}
+                                                                    className="group/btn relative inline-flex items-center gap-2 overflow-hidden"
+                                                                >
                                                                     {/* Button Background Animation */}
                                                                     <div className="absolute inset-0 bg-gradient-to-r from-[#7C0A02] via-[#AF3112] to-[#7C0A02] bg-size-200 bg-pos-0 group-hover/btn:bg-pos-100 transition-all duration-500"></div>
 
@@ -816,7 +819,7 @@ const About = () => {
                                                                         {text.learnMore}
                                                                         <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
                                                                     </span>
-                                                                </button>
+                                                                </Link>
                                                             </div>
 
                                                             {/* Decorative Line Accent */}

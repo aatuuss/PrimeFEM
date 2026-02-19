@@ -1,11 +1,32 @@
 import React, { useState } from "react";
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Experince = () => {
+	const { language } = useLanguage();
 	const heroImage = "/img/hero1.jpg";
 	const [activeYear, setActiveYear] = useState("2024");
+	const content = {
+		en: {
+			heroBadgeText: 'Read More',
+			heroTitleMain: 'Company Experience',
+			heroTitleGradient: 'Year to Year',
+			heading: 'Experience',
+			heading2: 'Year to Year'
+		},
+		id: {
+			heroBadgeText: 'Baca Selengkapnya',
+			heroTitleMain: 'Pengalaman Perusahaan',
+			heroTitleGradient: 'Tahun ke Tahun',
+			heading: 'Pengalaman',
+			heading2: 'Tahun ke Tahun'
+		}
+	};
+
+	const text = content[language];
+
 	const experiencesByYear = {
 		"2024": {
-			title: "Our 2024 Experiences",
+			title: { en: "Our 2024 Experiences", id: "Pengalaman Kami 2024" },
 			image: "/img/pg1.png",
 			imageAlt: "Experience 2024",  
 			items: [
@@ -19,7 +40,7 @@ const Experince = () => {
 			],
 		},
 		"2025": {
-			title: "Our 2025 Experiences",
+			title: { en: "Our 2025 Experiences", id: "Pengalaman Kami 2025" },
 			image: "/img/pg2.png",
 			imageAlt: "Experience 2025",
 			items: [
@@ -342,12 +363,12 @@ const Experince = () => {
 
 				<div className="experience-hero-content">
 					<div className="experience-hero-badge">
-						<a href="#experience-content" className="experience-hero-badge-text">Read More</a>
+						<a href="#experience-content" className="experience-hero-badge-text">{text.heroBadgeText}</a>
 					</div>
 					<h1 className="experience-hero-title">
-						Company Experince <br />
+						{text.heroTitleMain} <br />
 						<span className="experience-hero-gradient-text">
-							Year to Year
+							{text.heroTitleGradient}
 						</span>
 					</h1>
 				</div>
@@ -360,8 +381,8 @@ const Experince = () => {
 			</section>
 
 			<div className="experience-content" id="experience-content">
-				<div className="experience-heading">Experience</div>
-				<div className="experience-heading">Year to Year</div>
+<div className="experience-heading">{text.heading}</div>
+		<div className="experience-heading">{text.heading2}</div>
 
 				<div className="experience-tabs">
 					<div className="experience-tab-buttons">
@@ -406,7 +427,7 @@ const Experince = () => {
 
 					<div className="experience-details">
 						<div className="experience-title">
-							{activeExperience.title}
+							{activeExperience.title[language]}
 						</div>
 						<ul className="experience-list">
 							{activeExperience.items.map((item) => (

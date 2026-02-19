@@ -1,12 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Servis = () => {
+	const { language } = useLanguage();
 	const heroImage = "/img/hero.jpg";
 	const servicesImage = "/img/pm.png";
+
+	const content = {
+		en: {
+			heroLine1: 'ENGINEERING',
+			heroAccent: 'EXCELLENCE',
+			categoryLabel: 'Services\nCategory',
+			servicesSectionTitle: 'SERVICES',
+			servicesSectionText: 'The services we provide include Mechanical Engineering, FEM Analysis, Piping & Stress Analysis,\nWelding Engineering, Code Compliance, and Geotechnical Studies.',
+			primeTitle: 'PRIME FEM',
+			primeDescription: 'PrimeFEM is an engineering consulting company that delivers analysis-driven engineering solutions. We support industrial projects by providing design verification, integrity assessment, and code-compliant evaluations to ensure efficient project execution.',
+		},
+		id: {
+			heroLine1: 'REKAYASA',
+			heroAccent: 'KEUNGGULAN',
+			categoryLabel: 'Kategori\nLayanan',
+			servicesSectionTitle: 'LAYANAN',
+			servicesSectionText: 'Layanan yang kami sediakan meliputi Rekayasa Mekanik, Analisis FEM, Analisis Tekanan & Pipa,\nRekayasa Welding, Kepatuhan Kode, dan Studi Geoteknik.',
+			primeTitle: 'PRIME FEM',
+			primeDescription: 'PrimeFEM adalah perusahaan konsultasi rekayasa yang menghadirkan solusi berbasis analisis. Kami mendukung proyek industri dengan menyediakan verifikasi desain, penilaian integritas, dan evaluasi sesuai kode untuk memastikan pelaksanaan proyek yang efisien.',
+		}
+	};
+	const text = content[language];
+
 	const servicesCategories = [
 		{
-			title: "Deliver Mechanical Engineering & Equipment Integrity Services",
-			intro: "Professional engineering services focused on the design, evaluation, maintenance, and life-cycle assurance of mechanical systems and industrial equipment.",
+			id: 1,
+			title: { en: "Deliver Mechanical Engineering & Equipment Integrity Services", id: "Menawarkan Layanan Rekayasa Mekanik & Integritas Peralatan" },
+			intro: { en: "Professional engineering services focused on the design, evaluation, maintenance, and life-cycle assurance of mechanical systems and industrial equipment.", id: "Layanan rekayasa profesional yang berfokus pada desain, evaluasi, pemeliharaan, dan jaminan integritas siklus hidup sistem mekanik dan peralatan industri." },
 			bullets: [
 				"Nozzle & Interface Evaluation",
 				"Fitness-for-Service & Life Assessment",
@@ -18,8 +45,9 @@ const Servis = () => {
 			image: "/img/l23.png",
 		},
 		{
-			title: "Piping & PIPELINE Engineering",
-			intro: "Specialized mechanical engineering discipline focused on the design, analysis, and integrity assurance of piping systems and pipelines.",
+			id: 2,
+			title: { en: "Piping & PIPELINE Engineering", id: "Rekayasa Piping & Pipeline" },
+			intro: { en: "Specialized mechanical engineering discipline focused on the design, analysis, and integrity assurance of piping systems and pipelines.", id: "Disiplin rekayasa mekanik khusus yang berfokus pada desain, analisis, dan jaminan integritas sistem piping dan pipeline." },
 			bullets: [
 				"Piping Stress & Flexibility Analysis",
 				"Dynamic & Special Load Assessment",
@@ -31,8 +59,9 @@ const Servis = () => {
 			image: "/img/acc1.jpeg",
 		},
         {
-			title: "Welding Engineering & Fabrication Quality",
-			intro: "Services that ensure welded structures, piping, and equipment are fabricated correctly and in full compliance with codes.",
+			id: 3,
+			title: { en: "Welding Engineering & Fabrication Quality", id: "Rekayasa Welding & Kualitas Fabrikasi" },
+			intro: { en: "Services that ensure welded structures, piping, and equipment are fabricated correctly and in full compliance with codes.", id: "Layanan yang memastikan struktur, piping, dan peralatan yang dilas dibuat dengan benar dan sepenuhnya sesuai dengan kode." },
 			bullets: [
 				"Welding Engineering & Procedure Support",
 				"Weld Joint Design & Fabrication Review",
@@ -43,8 +72,9 @@ const Servis = () => {
 			image: "/img/wd2.jpeg",
 		},
         {
-			title: "Provide FEM-Based Engineering Analysis",
-			intro: "Advanced analysis using Finite Element Method for complex structural and mechanical evaluations.",
+			id: 4,
+			title: { en: "Provide FEM-Based Engineering Analysis", id: "Memberikan Analisis Rekayasa Berbasis FEM" },
+			intro: { en: "Advanced analysis using Finite Element Method for complex structural and mechanical evaluations.", id: "Analisis lanjutan menggunakan Metode Elemen Hingga untuk evaluasi struktural dan mekanik yang kompleks." },
 			bullets: [
 				"Pressure Equipment & Component Analysis",
 				"Thermal & Thermo-Mechanical Analysis",
@@ -55,8 +85,9 @@ const Servis = () => {
 			image: "/img/base.png",
 		},
         {
-			title: "Ensure Code Compliance & Engineering Assurance",
-			intro: "Verification and documentation to ensure all designs and operations meet regulatory and technical standards.",
+			id: 5,
+			title: { en: "Ensure Code Compliance & Engineering Assurance", id: "Menjamin Kepatuhan Kode & Jaminan Rekayasa" },
+			intro: { en: "Verification and documentation to ensure all designs and operations meet regulatory and technical standards.", id: "Verifikasi dan dokumentasi untuk memastikan semua desain dan operasi memenuhi standar regulasi dan teknis." },
 			bullets: [
 				"Code Compliance Verification",
 				"Independent Engineering Review (IER)",
@@ -69,6 +100,28 @@ const Servis = () => {
 
 	const [activeCategoryIndex, setActiveCategoryIndex] = useState(null);
 	const activeCategory = servicesCategories[activeCategoryIndex] || servicesCategories[0];
+
+	// read query parameter to open specific category when page loads
+	const location = useLocation();
+	useEffect(() => {
+		const params = new URLSearchParams(location.search);
+		const cat = params.get('category');
+		if (cat) {
+			const idx = servicesCategories.findIndex(s => String(s.id) === cat);
+			if (idx !== -1) {
+				setActiveCategoryIndex(idx);
+			}
+		}
+	}, [location.search]);
+
+	// scroll category section into view when index changes
+	const categoryRef = useRef(null);
+	useEffect(() => {
+		if (activeCategoryIndex !== null) {
+			categoryRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		}
+	}, [activeCategoryIndex]);
+
 
 	return (
 		<div className="services-page">
@@ -349,8 +402,8 @@ const Servis = () => {
 				<div className="services-hero-overlay" />
 				<div className="services-hero-content">
 					<h1 className="services-hero-title">
-						ENGINEERING<br />
-						<span className="services-hero-gradient-text">EXCELLENCE</span>
+					{text.heroLine1}<br />
+					<span className="services-hero-gradient-text">{text.heroAccent}</span>
 					</h1>
 				</div>
 				<div className="services-hero-wave">
@@ -364,21 +417,22 @@ const Servis = () => {
 			<section className="services-red-section">
 				<div className="container-custom">
 					<div className="services-intro-grid">
-						<h2 className="services-intro-title">SERVICES</h2>
-						<p className="services-intro-text">
-							The services we provide include Mechanical Engineering, FEM Analysis, Piping & Stress Analysis,<br />
-							Welding Engineering, Code Compliance, and Geotechnical Studies.
+					<h2 className="services-intro-title">{text.servicesSectionTitle}</h2>
+					<p className="services-intro-text">
+						{text.servicesSectionText.split("\n").map((line, idx) => (
+							<React.Fragment key={idx}>
+								{line}
+								<br />
+							</React.Fragment>
+						))}
 						</p>
 					</div>
 
 					<div className="prime-fem-content-wrapper">
 						<div className="prime-fem-text">
-							<h3 className="prime-fem-title">PRIME FEM</h3>
+							<h3 className="prime-fem-title">{text.primeTitle}</h3>
 							<p className="prime-fem-desc">
-								PrimeFEM is an engineering consulting company that delivers 
-								analysis-driven engineering solutions. We support industrial 
-								projects by providing design verification, integrity assessment, 
-								and code-compliant evaluations to ensure efficient project execution.
+							{text.primeDescription}
 							</p>
 						</div>
 						<div className="prime-fem-img-box">
@@ -390,7 +444,7 @@ const Servis = () => {
 
 			{/* WHITE SECTION */}
 			<section className="services-white-section">
-				<div className="container-custom">
+				<div className="container-custom" ref={categoryRef}>
 					<div className="category-grid">
 						<div className="category-sticky-side">
 							<h2 className="category-label">Services<br/>Category</h2>
@@ -411,12 +465,12 @@ const Servis = () => {
 											)
 										}
 									>
-										<span className="trigger-title">{cat.title}</span>
+										<span className="trigger-title">{cat.title[language]}</span>
 										<span className="trigger-icon">{activeCategoryIndex === idx ? "−" : "+"}</span>
 									</button>
 									{activeCategoryIndex === idx && (
 										<div className="accordion-content">
-											<p>{cat.intro}</p>
+											<p>{cat.intro[language]}</p>
 											<ul className="bullet-list">
 												{cat.bullets.map((b, i) => <li key={i}>{b}</li>)}
 											</ul>
